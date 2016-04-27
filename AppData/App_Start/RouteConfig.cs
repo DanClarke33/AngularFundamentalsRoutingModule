@@ -13,6 +13,8 @@ namespace AppData
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // NOTE: If we were using .Net for the delivery of the site instead of just html pages in a folder the defaults here would ensure we deliver the index page when angular html5 routing is used, 
+            // this would give us the index page and angular will then apply it's routing on top just like when clicking through from the index
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
