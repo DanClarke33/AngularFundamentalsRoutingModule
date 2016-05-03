@@ -1,5 +1,3 @@
-'use strict';
-
 eventsApp.directive('mySample', function($compile) {
 	return {
 		restrict: 'E', // allow directive to be used as an element ('C' for class, A' for attribute)
