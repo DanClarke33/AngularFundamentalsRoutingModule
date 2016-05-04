@@ -1,7 +1,10 @@
 module.exports = function(config){
   config.set({
 
-    basePath : '../app',
+    basePath : '../app', 
+    preprocessors: {
+      '**/*.html':'ng-html2js'
+    },
 
     files : [
       'lib/angular/angular.js',
@@ -9,7 +12,8 @@ module.exports = function(config){
       '../test/lib/angular-mocks.js',
       '../test/lib/sinon-1.15.0.js',
       'js/**/*.js',
-      '../test/unit/**/*.js'
+      '../test/unit/**/*.js',
+      'templates/directives/*.html'
     ],
 
     autoWatch : true,
@@ -20,7 +24,8 @@ module.exports = function(config){
 
     plugins : [
       'karma-chrome-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-ng-html2js-preprocessor'
     ],
 
     junitReporter : {
