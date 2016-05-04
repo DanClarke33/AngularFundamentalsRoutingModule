@@ -26,7 +26,7 @@ describe('EventProfileControllerSpec', function() {
 
 		// verify call
 		expect(mockGravatarUrlBuilder.buildGravatarUrl.calledWith(email)).toBe(true);
-		expect(result).toBe("url");
+		expect(result).toBe(url);
 	});
 
 });
