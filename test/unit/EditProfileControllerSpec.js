@@ -1,4 +1,4 @@
-describe('EventProfileController', function() {
+describe('EventProfileControllerSpec', function() {
 
 	var $controllerConstructor, scope, mockGravatarUrlBuilder;
 
@@ -7,24 +7,22 @@ describe('EventProfileController', function() {
 	beforeEach(inject(function($controller, $rootScope) {
 		$controllerConstructor = $controller; // take the controller constructor service and store it so we can use it in our test
 		scope = $rootScope.$new(); // create a scope object we can use in the test using the $rootscope service
-		mockGravatarUrlBuilder = sinon.stub({ buildGravatarUrl: function () {}}); // create a stub using sinon which will give us mocking behaviour on this definition
+		mockGravatarUrlBuilder = sinon.stub({ buildGravatarUrl: function () { return "testurl"; }}); // create a stub using sinon which will give us mocking behaviour on this definition
 	}));
 
 	it('should build the gravatar with the given email', function() {
 
-		//mockGravatarUrlBuilder.setup(getGravatarUrl).result // setup mock behaviour (provided by sinon)
-
 		// create the actual controller to test, passing mock objects for its dependencies
-		$controllerConstructor("EventProfileController", 
+		$controllerConstructor("EditProfileController", 
 			{ '$scope': scope, gravatarUrlBuilder: mockGravatarUrlBuilder });
 
 		// check that on construction the desired effects occur
 		var email = "joe@joe.com";
-		scope.getGravatarUrl(email);
+		var result = scope.getGravatarUrl(email);
 
 		// verify call
 		expect(mockGravatarUrlBuilder.buildGravatarUrl.calledWith(email)).toBe(true);
-		//expect(result).toBe(mockEvents);
+		expect(result).toBe("testurl");
 	});
 
 });
