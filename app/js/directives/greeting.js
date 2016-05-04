@@ -5,7 +5,7 @@ eventsApp
         return {
             restrict: 'E',
             replace: true,
-            transclude: true,
+            transclude: true, // allow inheriting of directives in nested (child) elements
             priority: 1,
             template: "<div><button class='btn' ng-click='sayHello()'>Say Hello</button><div ng-transclude></div></div>",
             controller: function GreetingController($scope) {
@@ -34,7 +34,7 @@ eventsApp
         return {
             restrict: 'A',
             priority: 2,
-            require: '^greeting',
+            require: '^greeting', // ^ and transclude in parent means allow to inherit from parent directive elements
             link: function(scope, element, attrs, controller) {
                 controller.addGreeting('namaste')
             }
