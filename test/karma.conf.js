@@ -6,6 +6,10 @@ module.exports = function(config){
       '**/*.html':'ng-html2js'
     },
 
+    ngHtml2JsPreprocessor: {
+      prependPrefix: '/'
+    },
+
     files : [
       'lib/angular/angular.js',
       'lib/angular/angular-*.js',
@@ -13,7 +17,7 @@ module.exports = function(config){
       '../test/lib/sinon-1.15.0.js',
       'js/**/*.js',
       '../test/unit/**/*.js',
-      'templates/directives/*.html'
+      '**/*.html'
     ],
 
     autoWatch : true,
